@@ -106,7 +106,7 @@ class WordLM():
         self.model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['accuracy'])
 
         # checkpoint = ModelCheckpoint(os.path.join(self.ckpt_path, 'WordLM_{epoch:03d}.h5'), period=ckpt_period, save_weights_only=True)
-        early_stop = EarlyStopping(monitor='loss', patience=12)
+        early_stop = EarlyStopping(monitor='loss', patience=50)
         save_model = SaveModel(ckpt_path=self.ckpt_path, model_path=self.model_path, mode_name=self.mode_name, ckpt_period=ckpt_period)
         sequenece_genrator = SequenceGenerator(corpus, self.seq_length, self.mapping, self.vocab_size, batch_size=self.batch_size)
 

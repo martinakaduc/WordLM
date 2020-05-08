@@ -38,7 +38,7 @@ def main(args):
         model.compile(loss='mean_squared_error', optimizer=optimizer, metrics=['accuracy'])
 
         # checkpoint = ModelCheckpoint(os.path.join(args.ckpt_path, 'WordLM_{epoch:03d}.h5'), period=args.ckpt_period)
-        early_stop = EarlyStopping(monitor='loss', patience=12)
+        early_stop = EarlyStopping(monitor='loss', patience=50)
         save_model = SaveModel(ckpt_path=args.ckpt_path, model_path=args.model_path, mode_name=args.mode, ckpt_period=args.ckpt_period)
         sequenece_genrator = SequenceGenerator(raw_text, args.seq_length, mapping, vocab_size, batch_size=args.batch_size)
 
