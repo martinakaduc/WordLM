@@ -17,7 +17,7 @@ def build_model(vocab_size, seq_length=5, batch_size=32):
     model.add(Dropout(0.15))
     model.add(LSTM(512, return_sequences=True))
     model.add(LSTM(512))
-    model.add(Dense(512, activation='relu'))
+    model.add(Dense(512, activation='linear'))
     model.add(Dense(vocab_size, activation='linear'))
 
     model.summary()
