@@ -32,14 +32,6 @@ def encode_sequence(mapping, text, seq_length, padding=False):
     # print(len(encoded_seq))
     return np.array(encoded_seq).reshape((1, len(encoded_seq), 300))
 
-def generate_mapping(text, mapping_file='generic_mapping.pkl'):
-    chars = sorted(list(set(text)))
-    mapping = dict((c, i) for i, c in enumerate(chars))
-
-    # save the mapping
-    pickle.dump(mapping, open(mapping_file, 'wb'))
-    return mapping
-
 def decode_sequence(mapping, text):
     out_text = ""
     for i in range(len(text)):

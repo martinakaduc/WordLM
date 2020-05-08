@@ -53,7 +53,7 @@ class SequenceGenerator(Sequence):
         :return: batch of images
         """
         # Initialization
-        X = np.empty((self.batch_size, self.seq_length, self.vocab_size))
+        X = np.empty((self.batch_size, self.seq_length, self.vocab_size),  dtype=np.float64)
 
         # Generate data
         for i, ID in enumerate(list_index):
@@ -70,7 +70,7 @@ class SequenceGenerator(Sequence):
         :param list_IDs_temp: list of label ids to load
         :return: batch if masks
         """
-        y = np.zeros((self.batch_size, self.vocab_size), dtype=int)
+        y = np.empty((self.batch_size, self.vocab_size), dtype=np.float64)
 
         # Generate data
         for i, ID in enumerate(list_index):
