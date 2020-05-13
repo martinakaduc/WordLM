@@ -73,7 +73,7 @@ class SaveModel(Callback):
 
     def on_epoch_end(self, epoch, logs=None):
         if (epoch + 1) % self.ckpt_period == 0:
-            self.model.save(os.path.join(self.ckpt_path, 'WordLM_%s_%.3d.model'%(self.mode_name, epoch)))
+            self.model.save(os.path.join(self.ckpt_path, 'WordLM_%s_%d.model'%(self.mode_name, epoch)))
 
     def on_train_end(self, logs=None):
          self.model.save(os.path.join(self.model_path, 'WordLM_%s.model'%self.mode_name))
