@@ -129,7 +129,7 @@ class WordLM():
         if ckpt_file:
             print("Restoring model from checkpoint: %s..."%ckpt_file[-1])
             self.model= load_model(os.path.join(self.ckpt_path, ckpt_file[-1]))
-            self.continue_epoch = int(ckpt_file[-1][21:-6]) + 1
+            self.continue_epoch = int(ckpt_file[-1][18:-6]) + 1
             # load_multigpu_checkpoint_weights(self.model, os.path.join(self.ckpt_path, ckpt_file[-1]))
             # self.model.save(os.path.join(self.model_path, 'WordLM_%s.model'%self.mode_name))
             return True

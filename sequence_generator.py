@@ -43,7 +43,7 @@ class SequenceGenerator(Sequence):
     def on_epoch_end(self):
         """Updates indexes after each epoch
         """
-        self.indexes = np.arange(len(self.text) - self.seq_length + 1, dtype=np.int32)
+        self.indexes = np.arange(len(self.text) - self.seq_length + 1)
         if self.shuffle == True:
             np.random.shuffle(self.indexes)
 
